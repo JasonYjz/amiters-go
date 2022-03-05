@@ -11,3 +11,10 @@ func JsonData(code int, data interface{}) *JsonResult {
 		Data: data,
 	}
 }
+
+func SucData() *JsonResult {
+	return &JsonResult{
+		Code: 200,
+		Data: nil,
+	}
+}

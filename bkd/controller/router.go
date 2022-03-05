@@ -2,6 +2,7 @@ package controller
 
 import (
 	"amiters-go/controller/api"
+	"amiters-go/controller/resp"
 	"github.com/iris-contrib/middleware/cors"
 	"github.com/kataras/iris/v12"
 	"github.com/kataras/iris/v12/middleware/logger"
@@ -23,8 +24,12 @@ func Router() {
 		AllowedHeaders:   []string{"*"},
 	}))
 
+	app.OnAnyErrorCode(func(ctx iris.Context) {
+		ctx.JSON(resp.JsonData(201, "Http Error"))
+	})
 	mvc.Configure(app.Party("/api"), func(m *mvc.Application) {
 		m.Party("/post").Handle(new(api.PostController))
+		m.Party("/user").Handle(new(api.UserController))
 	})
 
 	app.Configure(iris.WithConfiguration(iris.Configuration{
