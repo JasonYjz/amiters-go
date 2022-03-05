@@ -18,3 +18,10 @@ func SucData() *JsonResult {
 		Data: nil,
 	}
 }
+
+func FailData() *JsonResult {
+	return &JsonResult{
+		Code: 400,
+		Data: "Internal Error",
+	}
+}
