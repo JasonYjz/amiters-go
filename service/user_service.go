@@ -3,6 +3,7 @@ package service
 import (
 	"amiters-go/dao"
 	"amiters-go/model"
+	"fmt"
 )
 
 var UserService = new(userService)
@@ -18,6 +19,7 @@ func (u *userService) Create(name string) (err error) {
 	user := &model.User{
 		Name: name,
 	}
+	fmt.Println(user)
 	return dao.UserDao.NewUser(user)
 }
 

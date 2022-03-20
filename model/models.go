@@ -10,6 +10,7 @@ type Model struct {
 }
 
 type User struct {
+	Model
 	Name string `gorm:"type:varchar(50)" json:"name"`
 	Mail string `gorm:"type:varchar(50)" json:"mail"`
 	Wxid string `gorm:"type:varchar(12)" json:"wxid"`

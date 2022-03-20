@@ -25,5 +25,5 @@ func (u *userDao) Query(name string) *model.User {
 }
 
 func (u *userDao) NewUser(usr *model.User) (err error) {
-	return u.db.Create(usr).Error
+	return u.db.Table("yjz_users").Create(usr).Error
 }

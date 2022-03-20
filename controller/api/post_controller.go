@@ -2,6 +2,7 @@ package api
 
 import (
 	"amiters-go/controller/resp"
+	"fmt"
 	"github.com/kataras/iris/v12"
 	"strconv"
 )
@@ -12,7 +13,7 @@ type PostController struct {
 
 // PostCreate 发表文章
 func (c *PostController) PostCreate() *resp.JsonResult {
-
+	fmt.Println(c.Ctx)
 	return resp.JsonData(200, "OK")
 }
 
